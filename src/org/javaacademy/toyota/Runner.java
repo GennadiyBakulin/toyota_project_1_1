@@ -10,6 +10,7 @@ import org.javaacademy.toyota.car.component.Headlight;
 import org.javaacademy.toyota.car.component.Wheel;
 import org.javaacademy.toyota.car.model.Camry;
 import org.javaacademy.toyota.exception.StartCarException;
+import org.javaacademy.toyota.factories.Country;
 
 public class Runner {
 
@@ -20,12 +21,11 @@ public class Runner {
     Wheel wheelHiance = new Wheel(WheelCarModel.HIANCE, false);
     Wheel wheelSolara = new Wheel(WheelCarModel.SOLARA, false);
 
-    Camry camry = new Camry(new FuelTank(1), new Engine(true),
-        new Electrics(true), new Headlight(true),
-        new Wheel[]{wheelCamry, wheelCamry, wheelCamry, wheelCamry});
-    camry.setColor(Color.RED);
-    camry.setMaxSpeed(210);
-    camry.setTransmission(TransmissionType.AUTOMATIC);
+    Camry camry = new Camry(Country.JAPAN, Color.RED, 10000, TransmissionType.AUTOMATIC,
+        new Wheel[]{wheelCamry, wheelCamryPunctured, wheelCamry}, new FuelTank(0),
+        new Engine(true), new Electrics(true), new Headlight(true),
+        240);
+
     try {
       camry.startMoving();
     } catch (StartCarException e) {

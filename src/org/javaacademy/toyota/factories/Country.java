@@ -2,7 +2,9 @@ package org.javaacademy.toyota.factories;
 
 public enum Country {
   RUSSIA("Россия"),
-  CHINA("Китай");
+  CHINA("Китай"),
+  JAPAN("Япония");
+
   private String name;
 
   Country(String name) {

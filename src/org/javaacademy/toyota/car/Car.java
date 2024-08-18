@@ -13,6 +13,7 @@ import org.javaacademy.toyota.exception.StartCarException;
 import org.javaacademy.toyota.factories.Country;
 
 public abstract class Car {
+
   private Country country;
 
   private Color color;
@@ -21,11 +22,26 @@ public abstract class Car {
   private double price;
 
   private TransmissionType transmission;
-  protected Wheel[] wheels = new Wheel[4];
-  protected FuelTank fuelTank;
-  protected Engine engine;
-  protected Electrics electrics;
-  protected Headlight headlight;
+  private Wheel[] wheels = new Wheel[4];
+  private FuelTank fuelTank;
+  private Engine engine;
+  private Electrics electrics;
+  private Headlight headlight;
+
+  protected Car(Country country, Color color, double price, TransmissionType transmission,
+      Wheel[] wheels, FuelTank fuelTank, Engine engine, Electrics electrics, Headlight headlight,
+      int maxSpeed) {
+    this.country = country;
+    this.color = color;
+    this.price = price;
+    this.transmission = transmission;
+    this.wheels = wheels;
+    this.fuelTank = fuelTank;
+    this.engine = engine;
+    this.electrics = electrics;
+    this.headlight = headlight;
+    this.maxSpeed = maxSpeed;
+  }
 
   public void startMoving() throws StartCarException {
     String[] errorMessages = new String[0];

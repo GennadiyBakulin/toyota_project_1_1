@@ -11,7 +11,7 @@ import org.javaacademy.toyota.exception.CountyFactoryNotEqualException;
 
 public class AssemblyConveyor {
 
-  private Country country;
+  private final Country country;
   private FactoryForProductionOfParts factory;
 
   public AssemblyConveyor(Country country) {
@@ -31,14 +31,10 @@ public class AssemblyConveyor {
 
   public void createCamry(Color color, double price) {
     if (factory != null) {
-      Camry camry = new Camry(factory.createFuelTank(), factory.createEngine(),
-          factory.createElectrics(), factory.createHeadlight(),
-          factory.createWheel(WheelCarModel.CAMRY));
-      camry.setTransmission(TransmissionType.AUTOMATIC);
-      camry.setMaxSpeed(240);
-      camry.setColor(color);
-      camry.setPrice(price);
-      camry.setCountry(country);
+      Camry camry = new Camry(country, color, price, TransmissionType.AUTOMATIC,
+          factory.createWheel(WheelCarModel.CAMRY), factory.createFuelTank(),
+          factory.createEngine(), factory.createElectrics(),
+          factory.createHeadlight(), 240);
     } else {
       System.out.println("не задана фабрика по производству деталей");
     }
@@ -46,14 +42,11 @@ public class AssemblyConveyor {
 
   public void createSolara(Color color, double price) {
     if (factory != null) {
-      Solara solara = new Solara(factory.createFuelTank(), factory.createEngine(),
-          factory.createElectrics(), factory.createHeadlight(),
-          factory.createWheel(WheelCarModel.SOLARA));
-      solara.setTransmission(TransmissionType.ROBOT);
-      solara.setMaxSpeed(210);
-      solara.setColor(color);
-      solara.setPrice(price);
-      solara.setCountry(country);
+
+      Solara solara = new Solara(country, color, price, TransmissionType.ROBOT,
+          factory.createWheel(WheelCarModel.SOLARA), factory.createFuelTank(),
+          factory.createEngine(), factory.createElectrics(),
+          factory.createHeadlight(), 210);
     } else {
       System.out.println("не задана фабрика по производству деталей");
     }
@@ -61,14 +54,10 @@ public class AssemblyConveyor {
 
   public void createHiance(Color color, double price) {
     if (factory != null) {
-      Hiance hiance = new Hiance(factory.createFuelTank(), factory.createEngine(),
-          factory.createElectrics(), factory.createHeadlight(),
-          factory.createWheel(WheelCarModel.HIANCE));
-      hiance.setTransmission(TransmissionType.MECHANICS);
-      hiance.setMaxSpeed(190);
-      hiance.setColor(color);
-      hiance.setPrice(price);
-      hiance.setCountry(country);
+      Hiance hiance = new Hiance(country, color, price, TransmissionType.MECHANICS,
+          factory.createWheel(WheelCarModel.HIANCE), factory.createFuelTank(),
+          factory.createEngine(), factory.createElectrics(),
+          factory.createHeadlight(), 190);
     } else {
       System.out.println("не задана фабрика по производству деталей");
     }
@@ -76,14 +65,10 @@ public class AssemblyConveyor {
 
   public void createDyna(Color color, double price) {
     if (factory != null) {
-      Dyna dyna = new Dyna(factory.createFuelTank(), factory.createEngine(),
-          factory.createElectrics(), factory.createHeadlight(),
-          factory.createWheel(WheelCarModel.DYNA));
-      dyna.setTransmission(TransmissionType.MECHANICS);
-      dyna.setMaxSpeed(190);
-      dyna.setColor(color);
-      dyna.setPrice(price);
-      dyna.setCountry(country);
+      Dyna dyna = new Dyna(country, color, price, TransmissionType.MECHANICS,
+          factory.createWheel(WheelCarModel.DYNA), factory.createFuelTank(),
+          factory.createEngine(), factory.createElectrics(),
+          factory.createHeadlight(), 190);
     } else {
       System.out.println("не задана фабрика по производству деталей");
     }
