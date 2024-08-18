@@ -38,6 +38,7 @@ public class AssemblyConveyor {
       camry.setMaxSpeed(240);
       camry.setColor(color);
       camry.setPrice(price);
+      camry.setCountry(country);
     } else {
       System.out.println("не задана фабрика по производству деталей");
     }
@@ -52,6 +53,7 @@ public class AssemblyConveyor {
       solara.setMaxSpeed(210);
       solara.setColor(color);
       solara.setPrice(price);
+      solara.setCountry(country);
     } else {
       System.out.println("не задана фабрика по производству деталей");
     }
@@ -66,6 +68,7 @@ public class AssemblyConveyor {
       hiance.setMaxSpeed(190);
       hiance.setColor(color);
       hiance.setPrice(price);
+      hiance.setCountry(country);
     } else {
       System.out.println("не задана фабрика по производству деталей");
     }
@@ -80,6 +83,7 @@ public class AssemblyConveyor {
       dyna.setMaxSpeed(190);
       dyna.setColor(color);
       dyna.setPrice(price);
+      dyna.setCountry(country);
     } else {
       System.out.println("не задана фабрика по производству деталей");
     }

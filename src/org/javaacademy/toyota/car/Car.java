@@ -10,13 +10,16 @@ import org.javaacademy.toyota.car.component.FuelTank;
 import org.javaacademy.toyota.car.component.Headlight;
 import org.javaacademy.toyota.car.component.Wheel;
 import org.javaacademy.toyota.exception.StartCarException;
+import org.javaacademy.toyota.factories.Country;
 
 public abstract class Car {
+  private Country country;
 
   private Color color;
   private int maxSpeed;
   private boolean stateOfMotion;
   private double price;
+
   private TransmissionType transmission;
   protected Wheel[] wheels = new Wheel[4];
   protected FuelTank fuelTank;
@@ -149,5 +152,13 @@ public abstract class Car {
 
   public void setHeadlight(Headlight headlight) {
     this.headlight = headlight;
+  }
+
+  public Country getCountry() {
+    return country;
+  }
+
+  public void setCountry(Country country) {
+    this.country = country;
   }
 }
