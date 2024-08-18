@@ -1,6 +1,6 @@
 package org.javaacademy.toyota.factories;
 
-import org.javaacademy.toyota.car.attributes.WheelCarModel;
+import org.javaacademy.toyota.car.component.WheelCarModel;
 import org.javaacademy.toyota.car.component.Electrics;
 import org.javaacademy.toyota.car.component.Engine;
 import org.javaacademy.toyota.car.component.FuelTank;
@@ -13,10 +13,6 @@ public class FactoryForProductionOfParts {
 
   public FactoryForProductionOfParts(Country country) {
     this.country = country;
-  }
-
-  public Country getCountry() {
-    return country;
   }
 
   public Wheel[] createWheel(WheelCarModel wheelCarModel) {
@@ -42,5 +38,9 @@ public class FactoryForProductionOfParts {
 
   public Headlight createHeadlight() {
     return new Headlight(true);
+  }
+
+  public Country getCountry() {
+    return country;
   }
 }

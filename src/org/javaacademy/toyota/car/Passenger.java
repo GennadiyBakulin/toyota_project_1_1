@@ -1,8 +1,8 @@
 package org.javaacademy.toyota.car;
 
-import org.javaacademy.toyota.car.attributes.Color;
-import org.javaacademy.toyota.car.attributes.CruiseControl;
-import org.javaacademy.toyota.car.attributes.TransmissionType;
+import org.javaacademy.toyota.car.component.Color;
+import org.javaacademy.toyota.car.component.CruiseControl;
+import org.javaacademy.toyota.car.component.TransmissionType;
 import org.javaacademy.toyota.car.component.Electrics;
 import org.javaacademy.toyota.car.component.Engine;
 import org.javaacademy.toyota.car.component.FuelTank;

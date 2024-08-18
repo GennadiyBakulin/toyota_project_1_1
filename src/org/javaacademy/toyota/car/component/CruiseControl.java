@@ -1,4 +1,4 @@
-package org.javaacademy.toyota.car.attributes;
+package org.javaacademy.toyota.car.component;
 
 public enum CruiseControl {
   TURN_ON("круиз контроль включен"),

@@ -1,40 +1,79 @@
 package org.javaacademy.toyota;
 
-import org.javaacademy.toyota.car.attributes.Color;
-import org.javaacademy.toyota.car.attributes.TransmissionType;
-import org.javaacademy.toyota.car.attributes.WheelCarModel;
-import org.javaacademy.toyota.car.component.Electrics;
-import org.javaacademy.toyota.car.component.Engine;
-import org.javaacademy.toyota.car.component.FuelTank;
-import org.javaacademy.toyota.car.component.Headlight;
-import org.javaacademy.toyota.car.component.Wheel;
+import org.javaacademy.toyota.car.component.Color;
 import org.javaacademy.toyota.car.model.Camry;
-import org.javaacademy.toyota.exception.StartCarException;
+import org.javaacademy.toyota.car.model.Dyna;
+import org.javaacademy.toyota.car.model.Hiance;
+import org.javaacademy.toyota.car.model.Solara;
+import org.javaacademy.toyota.dealernetwork.Buyer;
+import org.javaacademy.toyota.dealernetwork.Cashier;
+import org.javaacademy.toyota.dealernetwork.Manager;
+import org.javaacademy.toyota.exception.CountyFactoryNotEqualException;
+import org.javaacademy.toyota.factories.AssemblyConveyor;
 import org.javaacademy.toyota.factories.Country;
+import org.javaacademy.toyota.factories.FactoryForProductionOfParts;
+import org.javaacademy.toyota.warehouse.Warehouse;
 
 public class Runner {
 
-  public static void main(String[] args) {
-    Wheel wheelCamry = new Wheel(WheelCarModel.CAMRY, false);
-    Wheel wheelCamryPunctured = new Wheel(WheelCarModel.CAMRY, true);
-    Wheel wheelDyna = new Wheel(WheelCarModel.DYNA, false);
-    Wheel wheelHiance = new Wheel(WheelCarModel.HIANCE, false);
-    Wheel wheelSolara = new Wheel(WheelCarModel.SOLARA, false);
+  public static void main(String[] args) throws CountyFactoryNotEqualException {
+//    Wheel wheelCamry = new Wheel(WheelCarModel.CAMRY, false);
+//    Wheel wheelCamryPunctured = new Wheel(WheelCarModel.CAMRY, true);
+//    Wheel wheelDyna = new Wheel(WheelCarModel.DYNA, false);
+//    Wheel wheelHiance = new Wheel(WheelCarModel.HIANCE, false);
+//    Wheel wheelSolara = new Wheel(WheelCarModel.SOLARA, false);
+//
+//    Camry camry = new Camry(Country.JAPAN, Color.BLACK, 10000, TransmissionType.AUTOMATIC,
+//        new Wheel[]{wheelCamry, wheelCamryPunctured, wheelCamry}, new FuelTank(0),
+//        new Engine(true), new Electrics(true), new Headlight(true),
+//        240);
+//
+//    try {
+//      camry.startMoving();
+//    } catch (StartCarException e) {
+//      System.out.println(e.getMessage());
+//    }
+//    System.out.println(camry.isStateOfMotion());
+//    camry.turnOnHeadlight();
+//    camry.turnOnCruiseControl();
+//    System.out.println(camry.getConditionCruiseControl());
+//
 
-    Camry camry = new Camry(Country.JAPAN, Color.RED, 10000, TransmissionType.AUTOMATIC,
-        new Wheel[]{wheelCamry, wheelCamryPunctured, wheelCamry}, new FuelTank(0),
-        new Engine(true), new Electrics(true), new Headlight(true),
-        240);
+    Warehouse warehouse = new Warehouse();
+    FactoryForProductionOfParts factory = new FactoryForProductionOfParts(Country.JAPAN);
+    AssemblyConveyor conveyor = new AssemblyConveyor(Country.JAPAN);
+    conveyor.setFactory(factory);
+    Camry camry = conveyor.createCamry(Color.BLACK, 10000);
+    Solara solara = conveyor.createSolara(Color.WHITE, 12000);
+    Hiance hiance = conveyor.createHiance(Color.BLACK, 15000);
+    Dyna dyna = conveyor.createDyna(Color.BLACK, 22000);
+    warehouse.addCamry(camry);
+    warehouse.addDyna(dyna);
+    warehouse.addHiance(hiance);
+    warehouse.addSolara(solara);
 
-    try {
-      camry.startMoving();
-    } catch (StartCarException e) {
-      System.out.println(e.getMessage());
-    }
-    System.out.println(camry.isStateOfMotion());
-    camry.turnOnHeadlight();
-    camry.turnOnCruiseControl();
-    System.out.println(camry.getConditionCruiseControl());
+    Manager manager = new Manager();
+    manager.setConveyor(conveyor);
+    Cashier cashier = new Cashier();
+
+    Buyer buyer1 = new Buyer("Первый", 10000);
+    cashier.acceptsCarForSale(manager.sellCar(buyer1, warehouse));
+    Buyer buyer2 = new Buyer("Второй", 12000);
+    cashier.acceptsCarForSale(manager.sellCar(buyer2, warehouse));
+    Buyer buyer3 = new Buyer("Третий", 15000);
+    cashier.acceptsCarForSale(manager.sellCar(buyer3, warehouse));
+    Buyer buyer4 = new Buyer("Четвертый", 22000);
+    cashier.acceptsCarForSale(manager.sellCar(buyer4, warehouse));
+    Buyer buyer5 = new Buyer("Пятый", 11000);
+    cashier.acceptsCarForSale(manager.sellCar(buyer5, warehouse));
+    Buyer buyer6 = new Buyer("Шестой", 13000);
+    cashier.acceptsCarForSale(manager.sellCar(buyer6, warehouse));
+    Buyer buyer7 = new Buyer("Седьмой", 8000);
+    cashier.acceptsCarForSale(manager.sellCar(buyer7, warehouse));
+    Buyer buyer8 = new Buyer("Восьмой", 30000);
+    cashier.acceptsCarForSale(manager.sellCar(buyer8, warehouse));
+    System.out.println(cashier.getTotalAmount());
+
 
   }
 }

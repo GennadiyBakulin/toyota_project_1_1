@@ -1,7 +1,5 @@
 package org.javaacademy.toyota.car.component;
 
-import org.javaacademy.toyota.car.attributes.WheelCarModel;
-
 public class Wheel {
 
   private boolean isPunctured;

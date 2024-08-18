@@ -2,8 +2,8 @@ package org.javaacademy.toyota.car;
 
 import java.util.Arrays;
 import java.util.Objects;
-import org.javaacademy.toyota.car.attributes.Color;
-import org.javaacademy.toyota.car.attributes.TransmissionType;
+import org.javaacademy.toyota.car.component.Color;
+import org.javaacademy.toyota.car.component.TransmissionType;
 import org.javaacademy.toyota.car.component.Electrics;
 import org.javaacademy.toyota.car.component.Engine;
 import org.javaacademy.toyota.car.component.FuelTank;
@@ -20,9 +20,10 @@ public abstract class Car {
   private int maxSpeed;
   private boolean stateOfMotion;
   private double price;
+  private static final int COUNT_WHEEL = 4;
 
   private TransmissionType transmission;
-  private Wheel[] wheels = new Wheel[4];
+  private Wheel[] wheels = new Wheel[COUNT_WHEEL];
   private FuelTank fuelTank;
   private Engine engine;
   private Electrics electrics;
@@ -35,12 +36,12 @@ public abstract class Car {
     this.color = color;
     this.price = price;
     this.transmission = transmission;
-    this.wheels = wheels;
     this.fuelTank = fuelTank;
     this.engine = engine;
     this.electrics = electrics;
     this.headlight = headlight;
     this.maxSpeed = maxSpeed;
+    this.wheels = Arrays.copyOf(wheels, COUNT_WHEEL);
   }
 
   public void startMoving() throws StartCarException {

@@ -10,7 +10,7 @@ import org.javaacademy.toyota.car.model.Solara;
 public class Warehouse {
 
   private static final int MAX_TOTAL_COUNT_CAR = 1000;
-  private static int totalCountCar = 0;
+  public static int totalCountCar = 0;
   private final List<Camry> camries = new ArrayList<>();
   private final List<Solara> solaras = new ArrayList<>();
   private final List<Hiance> hiances = new ArrayList<>();
@@ -76,19 +76,35 @@ public class Warehouse {
     return false;
   }
 
-  public void countCamry() {
-    System.out.println(camries.size());
+  public int countCamry() {
+    return camries.size();
   }
 
-  public void countSolara() {
-    System.out.println(solaras.size());
+  public int countSolara() {
+    return solaras.size();
   }
 
-  public void countHiance() {
-    System.out.println(hiances.size());
+  public int countHiance() {
+    return hiances.size();
   }
 
-  public void countDyna() {
-    System.out.println(dynas.size());
+  public int countDyna() {
+    return dynas.size();
+  }
+
+  public List<Camry> getCamries() {
+    return camries;
+  }
+
+  public List<Solara> getSolaras() {
+    return solaras;
+  }
+
+  public List<Hiance> getHiances() {
+    return hiances;
+  }
+
+  public List<Dyna> getDynas() {
+    return dynas;
   }
 }
