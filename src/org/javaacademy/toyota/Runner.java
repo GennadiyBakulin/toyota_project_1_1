@@ -20,15 +20,12 @@ public class Runner {
     Wheel wheelHiance = new Wheel(WheelCarModel.HIANCE, false);
     Wheel wheelSolara = new Wheel(WheelCarModel.SOLARA, false);
 
-    Camry camry = new Camry();
+    Camry camry = new Camry(new FuelTank(1), new Engine(true),
+        new Electrics(true), new Headlight(true),
+        new Wheel[]{wheelCamry, wheelCamry, wheelCamry, wheelCamry});
     camry.setColor(Color.RED);
-    camry.setEngine(new Engine(true));
-    camry.setElectrics(new Electrics(true));
-    camry.setHeadlight(new Headlight(true));
     camry.setMaxSpeed(210);
-    camry.setFuelTank(new FuelTank(1));
     camry.setTransmission(TransmissionType.AUTOMATIC);
-    camry.setWheels(new Wheel[]{wheelCamry, wheelCamry, wheelCamry,wheelCamry});
     try {
       camry.startMoving();
     } catch (StartCarException e) {

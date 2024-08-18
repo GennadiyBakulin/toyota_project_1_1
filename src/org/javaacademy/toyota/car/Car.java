@@ -18,11 +18,11 @@ public abstract class Car {
   private boolean stateOfMotion;
   private double price;
   private TransmissionType transmission;
-  private final Wheel[] wheels = new Wheel[4];
-  private FuelTank fuelTank;
-  private Engine engine;
-  private Electrics electrics;
-  private Headlight headlight;
+  protected Wheel[] wheels = new Wheel[4];
+  protected FuelTank fuelTank;
+  protected Engine engine;
+  protected Electrics electrics;
+  protected Headlight headlight;
 
   public void startMoving() throws StartCarException {
     String[] errorMessages = new String[0];

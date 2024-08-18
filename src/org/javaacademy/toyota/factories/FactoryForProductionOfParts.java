@@ -19,8 +19,13 @@ public class FactoryForProductionOfParts {
     return country;
   }
 
-  public Wheel createWheel(WheelCarModel wheelCarModel) {
-    return new Wheel(wheelCarModel, false);
+  public Wheel[] createWheel(WheelCarModel wheelCarModel) {
+    return new Wheel[]{
+        new Wheel(wheelCarModel, false),
+        new Wheel(wheelCarModel, false),
+        new Wheel(wheelCarModel, false),
+        new Wheel(wheelCarModel, false)
+    };
   }
 
   public FuelTank createFuelTank() {
