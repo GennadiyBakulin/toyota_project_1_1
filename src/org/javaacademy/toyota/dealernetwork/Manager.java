@@ -15,7 +15,7 @@ public class Manager {
 
   public Car sellCar(Buyer buyer, Warehouse warehouse) {
     double amount = buyer.getAmount();
-    System.out.println(Warehouse.totalCountCar + buyer.getName());
+
     if (Warehouse.totalCountCar == 0) {
       if (amount >= 22000) {
         return conveyor.createDyna(Color.BLACK, amount);
