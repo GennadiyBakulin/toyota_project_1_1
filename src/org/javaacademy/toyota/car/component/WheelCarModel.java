@@ -1,18 +1,18 @@
 package org.javaacademy.toyota.car.component;
 
 public enum WheelCarModel {
-  CAMRY(17),
-  SOLARA(16),
-  HIANCE(20),
-  DYNA(20);
+    CAMRY(17),
+    SOLARA(16),
+    HIANCE(20),
+    DYNA(20);
 
-  private final int diameter;
+    private final int diameter;
 
-  WheelCarModel(int diameter) {
-    this.diameter = diameter;
-  }
+    WheelCarModel(int diameter) {
+        this.diameter = diameter;
+    }
 
-  public int getDiameter() {
-    return diameter;
-  }
+    public int getDiameter() {
+        return diameter;
+    }
 }

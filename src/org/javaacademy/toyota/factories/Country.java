@@ -1,17 +1,17 @@
 package org.javaacademy.toyota.factories;
 
 public enum Country {
-  RUSSIA("Россия"),
-  CHINA("Китай"),
-  JAPAN("Япония");
+    RUSSIA("Россия"),
+    CHINA("Китай"),
+    JAPAN("Япония");
 
-  private String name;
+    private final String name;
 
-  Country(String name) {
-    this.name = name;
-  }
+    Country(String name) {
+        this.name = name;
+    }
 
-  public String getName() {
-    return name;
-  }
+    public String getName() {
+        return name;
+    }
 }
