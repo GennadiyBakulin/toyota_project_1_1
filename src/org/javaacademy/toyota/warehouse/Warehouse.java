@@ -18,28 +18,28 @@ public class Warehouse {
     private final List<Dyna> dynas = new ArrayList<>();
 
     public void addCamry(Camry camry) {
-        if (checkedFreeSpaceOnWarehouse()) {
+        if (isFreeSpaceOnWarehouse()) {
             camries.add(camry);
             totalCountCar++;
         }
     }
 
     public void addSolara(Solara solara) {
-        if (checkedFreeSpaceOnWarehouse()) {
+        if (isFreeSpaceOnWarehouse()) {
             solaras.add(solara);
             totalCountCar++;
         }
     }
 
     public void addHiance(Hiance hiance) {
-        if (checkedFreeSpaceOnWarehouse()) {
+        if (isFreeSpaceOnWarehouse()) {
             hiances.add(hiance);
             totalCountCar++;
         }
     }
 
     public void addDyna(Dyna dyna) {
-        if (checkedFreeSpaceOnWarehouse()) {
+        if (isFreeSpaceOnWarehouse()) {
             dynas.add(dyna);
             totalCountCar++;
         }
@@ -69,7 +69,7 @@ public class Warehouse {
         return dyna;
     }
 
-    private boolean checkedFreeSpaceOnWarehouse() {
+    private boolean isFreeSpaceOnWarehouse() {
         if (totalCountCar < MAX_TOTAL_COUNT_CAR) {
             return true;
         }
@@ -77,20 +77,20 @@ public class Warehouse {
         return false;
     }
 
-    public int countCamry() {
-        return camries.size();
+    public void printCountCamries() {
+        System.out.println("На складе в наличии Camry - " + camries.size());
     }
 
-    public int countSolara() {
-        return solaras.size();
+    public void printCountSolaras() {
+        System.out.println("На складе в наличии Solara - " + solaras.size());
     }
 
-    public int countHiance() {
-        return hiances.size();
+    public void printCountHiances() {
+        System.out.println("На складе в наличии Hiance - " + hiances.size());
     }
 
-    public int countDyna() {
-        return dynas.size();
+    public void printCountDynas() {
+        System.out.println("На складе в наличии Dyna - " + dynas.size());
     }
 
     public List<Camry> getCamries() {

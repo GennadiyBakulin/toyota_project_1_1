@@ -179,4 +179,24 @@ public abstract class Car {
     public void setCountry(Country country) {
         this.country = country;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Car car = (Car) o;
+        return Double.compare(price, car.price) == 0 && color == car.color;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hashCode(color);
+        result = 31 * result + Double.hashCode(price);
+        return result;
+    }
 }

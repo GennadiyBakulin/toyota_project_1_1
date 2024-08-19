@@ -9,9 +9,9 @@ import org.javaacademy.toyota.dealernetwork.Buyer;
 import org.javaacademy.toyota.dealernetwork.Cashier;
 import org.javaacademy.toyota.dealernetwork.Manager;
 import org.javaacademy.toyota.exception.CountyFactoryNotEqualException;
-import org.javaacademy.toyota.factories.AssemblyConveyor;
+import org.javaacademy.toyota.factories.Conveyor;
 import org.javaacademy.toyota.factories.Country;
-import org.javaacademy.toyota.factories.FactoryForProductionOfParts;
+import org.javaacademy.toyota.factories.Factory;
 import org.javaacademy.toyota.warehouse.Warehouse;
 
 public class Runner {
@@ -40,8 +40,8 @@ public class Runner {
 //
 
         Warehouse warehouse = new Warehouse();
-        FactoryForProductionOfParts factory = new FactoryForProductionOfParts(Country.JAPAN);
-        AssemblyConveyor conveyor = new AssemblyConveyor(Country.JAPAN);
+        Factory factory = new Factory(Country.JAPAN);
+        Conveyor conveyor = new Conveyor(Country.JAPAN);
         conveyor.setFactory(factory);
         Camry camry = conveyor.createCamry(Color.BLACK, 10000);
         Solara solara = conveyor.createSolara(Color.WHITE, 12000);
@@ -52,7 +52,7 @@ public class Runner {
         warehouse.addHiance(hiance);
         warehouse.addSolara(solara);
 
-        Manager manager = new Manager();
+        Manager manager = new Manager("Ivan");
         manager.setConveyor(conveyor);
         Cashier cashier = new Cashier();
 

@@ -9,17 +9,16 @@ import org.javaacademy.toyota.car.model.Hiance;
 import org.javaacademy.toyota.car.model.Solara;
 import org.javaacademy.toyota.exception.CountyFactoryNotEqualException;
 
-public class AssemblyConveyor {
+public class Conveyor {
 
     private final Country country;
-    private FactoryForProductionOfParts factory;
+    private Factory factory;
 
-    public AssemblyConveyor(Country country) {
+    public Conveyor(Country country) {
         this.country = country;
     }
 
-    public void setFactory(FactoryForProductionOfParts factory)
-            throws CountyFactoryNotEqualException {
+    public void setFactory(Factory factory) throws CountyFactoryNotEqualException {
         if (country != factory.getCountry()) {
             throw new CountyFactoryNotEqualException("Конвейер не может быть запущен,\n"
                     + " не совпали страны расположения конвейера и фабрики по производству деталей.\n"

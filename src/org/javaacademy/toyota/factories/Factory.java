@@ -7,11 +7,11 @@ import org.javaacademy.toyota.car.component.Headlight;
 import org.javaacademy.toyota.car.component.Wheel;
 import org.javaacademy.toyota.car.component.WheelCarModel;
 
-public class FactoryForProductionOfParts {
+public class Factory {
 
     private final Country country;
 
-    public FactoryForProductionOfParts(Country country) {
+    public Factory(Country country) {
         this.country = country;
     }
 
